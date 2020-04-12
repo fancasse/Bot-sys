@@ -23,7 +23,7 @@ const zalgo = require('zalgolize');
 const fetchVideoInfo = require('youtube-info');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
+const youtube = new YouTube("");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
@@ -47,7 +47,7 @@ client.on('ready', function(){
         }
         i = i+j;
 
-        client.user.setGame(setGame[i],`http://www.twitch.tv/barontube`);	
+        client.user.setGame(setGame[i],`https://www.youtube.com/channel/UCYT0ogRE1HeFNcH5igzLAOw?view_as=subscriber`);	
     }, ms);	
     console.log(` ????????? |> Name: ${client.user.username}`);	
  console.log(` ????????? |> Servers: ${client.guilds.size}`);	
@@ -61,25 +61,6 @@ client.on('ready', function(){
 	    
 
 
-void UpdatePresence()
-{
-    char buffer[256];
-    DiscordRichPresence discordPresence;
-    memset(&discordPresence, 0, sizeof(discordPresence));
-    discordPresence.state = "In a Group";
-    sprintf(buffer, "Ranked | Mode: %d", GameEngine.GetMode());
-    discordPresence.details = buffer;
-    discordPresence.endTimestamp = time(0) + 5 * 60;
-    discordPresence.largeImageKey = "canary-large";
-    discordPresence.smallImageKey = "ptb-small";
-    discordPresence.partyId = GameEngine.GetPartyId();
-    discordPresence.partySize = 1;
-    discordPresence.partyMax = 6;
-    discordPresence.matchSecret = "4b2fdce12f639de8bfa7e3591b71a0d679d7c93f";
-    discordPresence.spectateSecret = "e7eb30d2ee025ed05c71ea495f770b76454ee4e0";
-    discordPresence.instance = 1;
-    Discord_UpdatePresence(&discordPresence);
-}
 
 
 client.on('message', message => {
